@@ -7,15 +7,14 @@ import store, { persistor } from "./Store/configureStore";
 import { View, Text } from "react-native";
 
 import SplashScreen from "./Screens/SplashScreen";
+import App from "./Screens/App";
 
 class QuicklaneStores extends Component {
   render() {
     return (
       <Provider store={store}>
         <PersistGate loading={<SplashScreen />} persistor={persistor}>
-          <View>
-            <Text>HOME</Text>
-          </View>
+          <App />
         </PersistGate>
       </Provider>
     );
