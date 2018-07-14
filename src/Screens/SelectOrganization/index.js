@@ -22,12 +22,23 @@ const styles = StyleSheet.create({
 });
 
 class SelectOrganization extends Component {
+
+  constructor(props){
+    super(props)
+
+    this.handleUSG = this.handleUSG.bind(this)
+  }
+
+  handleUSG = () => {
+    this.props.navigation.navigate("Login", { });
+  };
+
   render() {
     let { container, buttonContainer } = styles;
     return (
-      <View style={container}>        
+      <View style={container}>
         <View style={buttonContainer}>
-          <Button text={"USG"} backgroundColor={"#c23616"} color={"#ffffff"} />
+          <Button text={"USG"} backgroundColor={"#c23616"} color={"#ffffff"} submitAction={this.handleUSG}/>
         </View>
         <View style={buttonContainer}>
           <Button text={"GOK"} backgroundColor={"#192a56"} color={"#ffffff"} />

@@ -5,6 +5,7 @@ import { StackNavigator } from "react-navigation";
 
 import { getauth } from "../../Store/Authentication/selectors";
 import SelectOrganization from "../SelectOrganization";
+import Login from "../Login";
 import SplashScreen from "../SplashScreen";
 
 //#region navigator
@@ -19,6 +20,12 @@ const LoginRoute = StackNavigator({
     navigationOptions: {
       headerTitle: "Select Organization"
     }
+  },
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      headerTitle: "Log in"
+    }
   }
 });
 
@@ -32,9 +39,9 @@ class App extends Component {
   render() {
     let { isUserAuthenticated } = this.props.auth;
     if (isUserAuthenticated) {
-      return <HomeRoute />;
+      return <HomeRoute  navigation={this.props.navigation}/>;
     } else {
-      return <LoginRoute />;
+      return <LoginRoute navigation={this.props.navigation}/>;
     }
   }
 }

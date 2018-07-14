@@ -18,16 +18,21 @@ const styles = StyleSheet.create({
 const Button = ({
   text = "text",
   backgroundColor = "gray",
-  color = "black"
+  color = "black",
+  submitAction = () => {}
 }) => {
   let { buttonContainer, buttonText } = styles;
   const handleSubmit = () => {
     //TODO handle submit
+    submitAction();
   };
 
   return (
-    <TouchableOpacity style={[buttonContainer,{backgroundColor,}]} onPress={handleSubmit}>
-      <Text style={[buttonText, {color}]}>{text}</Text>
+    <TouchableOpacity
+      style={[buttonContainer, { backgroundColor }]}
+      onPress={handleSubmit}
+    >
+      <Text style={[buttonText, { color }]}>{text}</Text>
     </TouchableOpacity>
   );
 };
